@@ -16,7 +16,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       background: var(--blue);
       color: var(--offwhite);
@@ -85,6 +85,7 @@
     }
 
     section { position: relative; }
+    img { max-width: 100%; }
 
     .label {
       font-family: var(--mono);
@@ -540,9 +541,36 @@
     @media (max-width: 600px) {
       nav { padding: 1rem 1.25rem; }
       .nav-links { display: none; }
+
+      /* Reduce section vertical padding for mobile */
+      #hero { padding-top: 5rem; padding-bottom: 3rem; min-height: 100svh; }
+      #about { padding-top: 4rem; padding-bottom: 4rem; }
+      #expect { padding-bottom: 4rem; }
+      #speakers { padding-top: 4rem; padding-bottom: 4rem; }
+      #schedule { padding-bottom: 4rem; }
+      #tickets { padding-top: 5rem; padding-bottom: 5rem; }
       #hero, #about, #expect, #speakers, #schedule, #tickets { padding-left: 1.25rem; padding-right: 1.25rem; }
-      footer { flex-direction: column; gap: 1.25rem; text-align: center; }
+
+      /* Section headers & titles */
+      .section-header { padding-top: 3.5rem; padding-bottom: 2rem; margin-bottom: 2rem; }
+      .section-title { font-size: 2.2rem; margin-bottom: 2rem; }
+      .about-heading { font-size: 2.2rem; }
+      .tickets-headline { font-size: clamp(2rem, 12vw, 3rem); }
+
+      /* Hero alignment — left-align everything when stacked */
+      .hero-left { align-items: flex-start; }
+      .hero-date-block { text-align: left; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions a { text-align: center; width: 100%; box-sizing: border-box; }
+
+      /* Speakers */
+      .speakers-header { margin-bottom: 2rem; }
       .speakers-grid { grid-template-columns: 1fr; }
+      .speaker-name { font-size: .88rem; }
+
+      /* Footer */
+      footer { flex-direction: column; gap: 1.25rem; text-align: center; }
+      .footer-links { justify-content: center; }
     }
   </style>
 </head>
@@ -611,7 +639,7 @@
 
   <!-- ABOUT -->
   <section id="about">
-    <div style="max-width:1200px; margin:0 auto; padding: 7rem 0;">
+    <div style="max-width:1200px; margin:0 auto;">
       <div class="about-inner">
         <div class="about-left reveal">
           <span class="label">/ About</span>
