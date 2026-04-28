@@ -456,11 +456,11 @@
 
     /* CTA */
     #tickets {
-      padding: 9rem 2.5rem;
-      background: var(--offwhite);
+      padding: 7rem 2.5rem;
+      background: #ffffff;
       text-align: center;
     }
-    .tickets-inner { max-width: 680px; margin: 0 auto; }
+    .tickets-inner { max-width: 860px; margin: 0 auto; }
     .tickets-label {
       font-family: var(--mono);
       font-size: .62rem;
@@ -468,17 +468,22 @@
       text-transform: uppercase;
       color: rgba(2,75,184,.4);
       display: block;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .tickets-headline-card {
+      background: #ebebeb;
+      padding: 3rem 3rem;
+      margin-bottom: 2.5rem;
     }
     .tickets-headline {
       font-family: 'Pilat Extended', 'Impact', 'Arial Black', sans-serif;
       font-weight: 900;
       text-transform: uppercase;
-      font-size: clamp(2.5rem, 7vw, 6rem);
+      font-size: clamp(2.2rem, 6.5vw, 5.5rem);
       line-height: .95;
       letter-spacing: 0;
       color: var(--blue);
-      margin-bottom: 2rem;
+      text-align: left;
     }
     .tickets-sub {
       font-size: 1rem;
@@ -548,7 +553,9 @@
       #expect { padding-bottom: 4rem; }
       #speakers { padding-top: 4rem; padding-bottom: 4rem; }
       #schedule { padding-bottom: 4rem; }
-      #tickets { padding-top: 5rem; padding-bottom: 5rem; }
+      #tickets { padding-top: 4rem; padding-bottom: 4rem; }
+      .tickets-headline-card { padding: 1.75rem 1.5rem; }
+      .tickets-headline { font-size: 2rem; }
       #hero, #about, #expect, #speakers, #schedule, #tickets { padding-left: 1.25rem; padding-right: 1.25rem; }
 
       /* Centre everything in hero */
@@ -755,7 +762,9 @@
   <section id="tickets">
     <div class="tickets-inner reveal">
       <span class="tickets-label">/ Tickets</span>
-      <h2 class="tickets-headline">Come Expectant.<br>Leave Renewed.</h2>
+      <div class="tickets-headline-card">
+        <h2 class="tickets-headline">Come Expectant.<br>Leave Renewed.</h2>
+      </div>
       <p class="tickets-sub">We can't wait to welcome you. Tickets are limited — don't wait on this one.</p>
       <a href="https://www.eventbrite.co.uk/e/spiritcon-26-tickets-1839717577799?aff=oddtdtcreator&amp;fbclid=PAVERFWAPYw35leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafV4KNLf8v9OnCa9sp4ONcHSlYBanSckXVrNNa_L5GTwBF_v5fR1emG8J2zhg_aem_ZNKiFpK7MOEWHQGBBUX_Lw" target="_blank" rel="noopener" class="btn-blue">Secure Your Place</a>
       <span class="tickets-meta">May 22–23, 2026 — London, England</span>
