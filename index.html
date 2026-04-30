@@ -460,31 +460,37 @@
       background: #ffffff;
       text-align: center;
     }
-    .tickets-inner { max-width: 720px; margin: 0 auto; }
+    .tickets-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
     .tickets-label {
       font-family: var(--mono);
       font-size: .62rem;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: rgba(2,75,184,.4);
+      color: var(--black);
       display: block;
-      margin-bottom: 2.5rem;
     }
     .tickets-headline {
       font-family: 'Pilat Extended', 'Impact', 'Arial Black', sans-serif;
       font-weight: 900;
       text-transform: uppercase;
-      font-size: clamp(2.5rem, 4.5vw, 4.5rem);
-      line-height: .88;
+      font-size: clamp(2.2rem, 4vw, 3.75rem);
+      line-height: .9;
       letter-spacing: 0;
       color: var(--blue);
-      margin-bottom: 2.5rem;
     }
     .tickets-sub {
       font-size: 1rem;
       line-height: 1.75;
-      color: rgba(2,75,184,.55);
-      margin-bottom: 2.5rem;
+      color: var(--black);
+      max-width: 406px;
+      text-align: center;
     }
     .tickets-meta {
       font-family: var(--mono);
