@@ -328,7 +328,7 @@
       display: flex;
       gap: 1.5rem;
       justify-content: center;
-      margin-top: 1.25rem;
+      margin-top: 2.5rem;
     }
     .countdown-unit {
       display: flex;
@@ -379,6 +379,73 @@
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+
+    /* SCROLL DOWN */
+    .scroll-down {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      z-index: 2;
+      animation: fadeIn 1.2s .8s ease both;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .scroll-down-text {
+      font-family: var(--mono);
+      font-size: .58rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(245,245,245,.45);
+    }
+    .scroll-down-arrow {
+      width: 1px;
+      height: 2.5rem;
+      background: rgba(245,245,245,.3);
+      position: relative;
+      animation: arrowBob 1.6s ease-in-out infinite;
+    }
+    .scroll-down-arrow::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 6px;
+      height: 6px;
+      border-right: 1px solid rgba(245,245,245,.45);
+      border-bottom: 1px solid rgba(245,245,245,.45);
+    }
+    @keyframes arrowBob {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(6px); }
+    }
+
+    /* SCROLL TO TOP */
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 999;
+      background: none;
+      border: 1px solid rgba(245,245,245,.25);
+      color: rgba(245,245,245,.6);
+      font-family: var(--mono);
+      font-size: .58rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: .6rem .9rem;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s, background .2s, color .2s;
+    }
+    .scroll-top.visible { opacity: 1; pointer-events: all; }
+    .scroll-top:hover { background: rgba(245,245,245,.08); color: var(--offwhite); }
 
     /* MISSION */
     #mission {
@@ -832,6 +899,10 @@
         </div>
       </div>
     </div>
+    <a href="#mission" class="scroll-down" aria-label="Scroll down">
+      <span class="scroll-down-text">Scroll</span>
+      <span class="scroll-down-arrow"></span>
+    </a>
   </section>
 
   <!-- MISSION -->
@@ -1004,6 +1075,8 @@
     </div>
   </section>
 
+  <button class="scroll-top" id="scroll-top" aria-label="Back to top">↑ Top</button>
+
   <!-- FOOTER -->
   <footer>
 <img class="footer-logo" src="spiritcon-logo.png" alt="SPIRITCon" />
@@ -1093,6 +1166,12 @@ document.querySelectorAll('.speaker-card').forEach((card, i) => {
     }
     window.addEventListener('scroll', updateNavTheme, { passive: true });
     updateNavTheme();
+
+    const scrollTopBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   </script>
 </body>
 </html>
