@@ -288,9 +288,10 @@
       font-family: var(--mono);
       font-size: clamp(.75rem, 1.2vw, 1rem);
       letter-spacing: .2em;
-      text-transform: lowercase;
+      text-transform: uppercase;
       color: rgba(245,245,245,.6);
       animation: fadeIn .8s ease both;
+      margin-bottom: -1rem;
     }
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -976,6 +977,19 @@
       });
     }, { rootMargin: '-40% 0px -60% 0px' });
     sections.forEach(s => navObserver.observe(s));
+
+    const twEl = document.querySelector('.hero-question');
+    const twText = twEl.textContent;
+    twEl.textContent = '';
+    twEl.style.visibility = 'visible';
+    let twI = 0;
+    setTimeout(() => {
+      const twTimer = setInterval(() => {
+        twEl.textContent += twText[twI];
+        twI++;
+        if (twI >= twText.length) clearInterval(twTimer);
+      }, 45);
+    }, 600);
 
     document.querySelectorAll('.speaker-card').forEach((card, i) => {
       card.style.transitionDelay = `${i * 55}ms`;
