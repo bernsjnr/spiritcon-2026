@@ -675,6 +675,9 @@
     }
     .footer-links a:hover { color: var(--offwhite); }
 
+    /* Prevent overflow on all sections */
+    section { overflow-x: hidden; }
+
     /* REVEAL */
     .reveal {
       opacity: 0;
@@ -705,7 +708,7 @@
       #schedule { padding-bottom: 4rem; }
       #tickets { padding-top: 5rem; padding-bottom: 5rem; }
       .tickets-headline { font-size: 2.6rem; }
-      #hero, #about, #expect, #speakers, #schedule, #tickets { padding-left: 1.25rem; padding-right: 1.25rem; }
+      #hero, #about, #expect, #speakers, #schedule, #tickets, #give { padding-left: 1.5rem; padding-right: 1.5rem; }
 
       /* Hero on mobile */
       .hero-actions { flex-direction: column; align-items: center; width: 100%; }
