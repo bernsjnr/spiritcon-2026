@@ -146,14 +146,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: linear-gradient(to bottom, rgba(18,18,18,0.9) 0%, transparent 100%);
-      transition: background .5s ease;
+      background: var(--black);
+      transition: background .35s ease;
     }
-    nav.nav--light {
-      background: linear-gradient(to bottom, rgba(255,255,255,0.96) 0%, transparent 100%);
-    }
-    .nav-logo { width: 52px; transition: filter .5s ease; }
-    nav.nav--light .nav-logo { filter: invert(1) brightness(0); }
+    nav.nav--blue { background: var(--blue); }
+    .nav-logo { width: 52px; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a {
       font-family: var(--mono);
@@ -166,9 +163,6 @@
     }
     .nav-links a:hover,
     .nav-links a.active { color: var(--offwhite); }
-    nav.nav--light .nav-links a { color: rgba(18,18,18,.55); }
-    nav.nav--light .nav-links a:hover,
-    nav.nav--light .nav-links a.active { color: var(--black); }
     .nav-cta {
       font-family: var(--mono);
       font-size: .75rem;
@@ -181,8 +175,6 @@
       transition: background .3s, color .3s;
     }
     .nav-cta:hover { background: var(--black); color: var(--offwhite); }
-    nav.nav--light .nav-cta { background: var(--blue); color: var(--offwhite); }
-    nav.nav--light .nav-cta:hover { background: var(--black); }
     .nav-toggle {
       display: none;
       background: none;
@@ -199,7 +191,6 @@
       z-index: 1002;
     }
     .nav-toggle.is-open { transform: rotate(45deg); }
-    nav.nav--light .nav-toggle { color: var(--black); }
     .nav-mobile-menu {
       position: fixed;
       inset: 0;
@@ -997,16 +988,15 @@
     });
 
     const navEl = document.querySelector('nav');
-    const lightSections = [document.getElementById('tickets')];
+    const blueSections = ['about', 'expect', 'give'].map(id => document.getElementById(id));
     function updateNavTheme() {
       const navBottom = navEl.offsetHeight;
-      const isLight = lightSections.some(sec => {
+      const isBlue = blueSections.some(sec => {
         if (!sec) return false;
-        const top = sec.getBoundingClientRect().top;
-        const bottom = sec.getBoundingClientRect().bottom;
+        const { top, bottom } = sec.getBoundingClientRect();
         return top <= navBottom && bottom > 0;
       });
-      navEl.classList.toggle('nav--light', isLight);
+      navEl.classList.toggle('nav--blue', isBlue);
     }
     window.addEventListener('scroll', updateNavTheme, { passive: true });
     updateNavTheme();
