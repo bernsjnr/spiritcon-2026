@@ -273,21 +273,24 @@
       background: rgba(2, 10, 30, 0.62);
       z-index: 1;
     }
-    .hero-inner { position: relative; z-index: 2; }
     .hero-inner {
-      max-width: 1200px;
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
       width: 100%;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
+      gap: 2rem;
     }
     .hero-left {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2rem;
+      text-align: center;
+      gap: 1.5rem;
     }
     .hero-wordmark {
       font-family: 'Pilat Extended', 'Impact', 'Arial Black', sans-serif;
@@ -319,7 +322,9 @@
     .hero-right {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
       animation: fadeUp .9s .25s ease both;
     }
     .hero-question {
@@ -334,9 +339,10 @@
       font-size: 1rem;
       line-height: 1.75;
       opacity: .7;
-      max-width: 420px;
+      max-width: 520px;
+      text-align: center;
     }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
@@ -376,12 +382,13 @@
     /* ABOUT */
     #about { padding: 7rem 2.5rem; }
     .about-inner {
-      max-width: 1200px;
+      max-width: 760px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 5rem;
-      align-items: start;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2.5rem;
     }
     .about-left .label { display: block; margin-bottom: 1.5rem; }
     .about-heading {
@@ -389,13 +396,14 @@
       font-weight: 900;
       text-transform: uppercase;
       font-size: clamp(3rem, 6vw, 5.5rem);
-      line-height: .9;
+      line-height: 1.05;
       letter-spacing: 0;
     }
     .about-body {
-      font-size: clamp(1rem, 1.3vw, 1.1rem);
+      font-size: 1rem;
       line-height: 1.8;
       opacity: .72;
+      text-align: center;
     }
     .about-body p + p { margin-top: 1.25rem; }
     .if-block {
@@ -421,8 +429,10 @@
     .expect-inner { max-width: 1200px; margin: 0 auto; }
     .section-header {
       display: flex;
-      align-items: baseline;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       padding: 7rem 0 3.5rem;
       border-bottom: 1px solid rgba(245,245,245,.1);
       margin-bottom: 3.5rem;
@@ -437,10 +447,11 @@
       font-family: 'Pilat Extended', 'Impact', 'Arial Black', sans-serif;
       font-weight: 900;
       text-transform: uppercase;
-      font-size: clamp(3rem, 7vw, 6.5rem);
-      line-height: .88;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1.05;
       letter-spacing: 0;
       margin-bottom: 3.5rem;
+      text-align: center;
     }
     .expect-grid {
       display: grid;
@@ -451,17 +462,18 @@
     .expect-card {
       background: var(--blue);
       padding: 2.5rem 2rem;
+      text-align: center;
     }
     .expect-icon { font-size: 1.4rem; display: block; margin-bottom: 1.25rem; }
     .expect-title {
       font-family: 'Pilat Extended', 'Impact', 'Arial Black', sans-serif;
       font-weight: 700;
       text-transform: uppercase;
-      font-size: .95rem;
+      font-size: 1rem;
       letter-spacing: 0;
       margin-bottom: .75rem;
     }
-    .expect-body { font-size: .87rem; line-height: 1.65; opacity: .58; }
+    .expect-body { font-size: 1rem; line-height: 1.75; opacity: .58; }
 
     /* SPEAKERS */
     #speakers {
@@ -471,8 +483,11 @@
     .speakers-inner { max-width: 1200px; margin: 0 auto; }
     .speakers-header {
       display: flex;
-      align-items: baseline;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: .5rem;
       margin-bottom: 3.5rem;
       padding-bottom: 1.25rem;
       border-bottom: 1px solid rgba(245,245,245,.08);
@@ -486,6 +501,7 @@
     .speaker-card {
       background: var(--black);
       padding: 2rem 1.5rem;
+      text-align: center;
       transition: background .2s;
     }
     .speaker-card:hover { background: #1c1c1c; }
@@ -501,7 +517,7 @@
       font-family: 'Pilat Extended', 'Impact', 'Arial Black', sans-serif;
       font-weight: 700;
       text-transform: uppercase;
-      font-size: clamp(.78rem, 1.05vw, .95rem);
+      font-size: 1rem;
       line-height: 1.2;
       letter-spacing: 0;
       margin-bottom: .4rem;
@@ -513,8 +529,11 @@
     .schedule-inner { max-width: 1200px; margin: 0 auto; }
     .schedule-top {
       display: flex;
-      align-items: baseline;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: .5rem;
       padding-bottom: 1.25rem;
       border-bottom: 1px solid rgba(245,245,245,.08);
       margin-bottom: 3.5rem;
@@ -527,8 +546,9 @@
     .schedule-day-label {
       font-family: 'Pilat Extended', 'Impact', 'Arial Black', sans-serif;
       font-weight: 700;
-      font-size: .95rem;
+      font-size: 1rem;
       text-transform: uppercase;
+      text-align: center;
       margin-bottom: 1.5rem;
       padding-bottom: 1rem;
       border-bottom: 1px solid rgba(245,245,245,.08);
@@ -547,7 +567,7 @@
       color: rgba(245,245,245,.28);
       padding-top: .15rem;
     }
-    .schedule-event { font-size: .9rem; line-height: 1.4; }
+    .schedule-event { font-size: 1rem; line-height: 1.4; }
     .schedule-event small { display: block; font-size: .7rem; opacity: .38; margin-top: .2rem; }
 
     /* CTA */
@@ -656,36 +676,22 @@
       .tickets-headline { font-size: 2.6rem; }
       #hero, #about, #expect, #speakers, #schedule, #tickets { padding-left: 1.25rem; padding-right: 1.25rem; }
 
-      /* Centre everything in hero */
-      .hero-left { align-items: center; }
-      .hero-date-block { text-align: center; }
-      .hero-right { align-items: center; text-align: center; }
-      .hero-sub { max-width: 100%; }
+      /* Hero on mobile */
       .hero-actions { flex-direction: column; align-items: center; width: 100%; }
       .hero-actions a { text-align: center; width: 100%; }
+      .hero-sub { max-width: 100%; }
 
       /* Section headers & titles */
       .section-header { padding-top: 3.5rem; padding-bottom: 2rem; margin-bottom: 2rem; }
-      .section-title { font-size: 2.8rem; margin-bottom: 2rem; text-align: center; }
+      .section-title { font-size: 2.8rem; margin-bottom: 2rem; }
 
-      /* About — centre heading and body */
-      .about-left { text-align: center; }
+      /* About */
       .about-heading { font-size: 2.8rem; }
-      .about-body { text-align: center; }
       .if-block { text-align: left; }
 
-      /* Expect cards — centre content */
-      .expect-card { text-align: center; }
-
       /* Speakers */
-      .speakers-header { margin-bottom: 2rem; justify-content: center; text-align: center; }
+      .speakers-header { margin-bottom: 2rem; }
       .speakers-grid { grid-template-columns: 1fr; }
-      .speaker-card { text-align: center; }
-      .speaker-name { font-size: .88rem; }
-
-      /* Schedule — keep left-aligned for readability */
-      .schedule-top { justify-content: center; gap: 1rem; }
-      .schedule-day-label { text-align: center; }
 
       /* Footer */
       footer { flex-direction: column; gap: 1.25rem; text-align: center; }
