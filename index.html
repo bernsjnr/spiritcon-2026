@@ -411,12 +411,22 @@
       text-align: center;
     }
     .about-body p + p { margin-top: 1.25rem; }
-    .if-block {
-      border-left: 2px solid rgba(245,245,245,.2);
-      padding-left: 1.5rem;
+    .if-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
       margin: 2rem 0;
+      width: 100%;
     }
-    .if-block p { font-style: italic; line-height: 2; opacity: .9; }
+    .if-card {
+      border: 1px solid rgba(245,245,245,.15);
+      padding: 1.5rem 1.25rem;
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.5;
+      opacity: .85;
+      text-align: center;
+    }
     .join-line {
       font-family: 'Pilat Extended', 'Impact', 'Arial Black', sans-serif;
       font-weight: 900;
@@ -726,7 +736,7 @@
 
       /* About */
       .about-heading { font-size: 2.8rem; }
-      .if-block { text-align: left; }
+      .if-cards { grid-template-columns: 1fr; }
 
       /* Speakers */
       .speakers-header { margin-bottom: 2rem; }
@@ -825,10 +835,10 @@
           <p>To quiet the noise, slow down, and rediscover a sacred rhythm in your everyday life — SPIRITCon 2026 is for you.</p>
           <p>It's a space to pause, listen, and be renewed. A gathering for those who are hungry for something real. For those who want to hear God again, not just in moments, but in the flow of their lives.</p>
           <p>Across two days, you'll step into an atmosphere of worship, creativity, and deep formation designed to help you reconnect, refocus, and experience transformation from the inside out.</p>
-          <div class="if-block">
-            <p>If you've been craving clarity…</p>
-            <p>If you're seeking depth…</p>
-            <p>If you're ready for a fresh move of God in your life…</p>
+          <div class="if-cards">
+            <div class="if-card">If you've been craving clarity…</div>
+            <div class="if-card">If you're seeking depth…</div>
+            <div class="if-card">If you're ready for a fresh move of God in your life…</div>
           </div>
           <p class="join-line">Join us. May 22–23, 2026.</p>
           <p style="margin-top:1rem; opacity:.5; font-size:.88rem;">With hundreds of worshippers and creatives from around the world, featuring guest speakers and worship leaders.</p>
