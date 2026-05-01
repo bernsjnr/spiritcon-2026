@@ -256,7 +256,24 @@
       flex-direction: column;
       justify-content: center;
       padding: 7rem 2.5rem 4rem;
+      overflow: hidden;
     }
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 10, 30, 0.62);
+      z-index: 1;
+    }
+    .hero-inner { position: relative; z-index: 2; }
     .hero-inner {
       max-width: 1200px;
       width: 100%;
@@ -695,6 +712,10 @@
 
   <!-- HERO -->
   <section id="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="MOVING WATER BACKGROUND FOR SPIRITCON.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
     <div class="hero-inner">
       <div class="hero-left">
 <img class="hero-logo" src="spiritcon-logo.png" alt="SPIRITCon 26" />
