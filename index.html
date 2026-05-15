@@ -721,6 +721,35 @@
       margin-top: .5rem;
     }
 
+    /* VOLUNTEER */
+    #volunteer {
+      padding: 9rem 2.5rem;
+      background: var(--black);
+      text-align: center;
+    }
+    .volunteer-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .volunteer-sub {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      opacity: .7;
+      max-width: 540px;
+      text-align: center;
+      color: var(--offwhite);
+    }
+    .volunteer-form-wrap {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+
     /* CTA */
     #tickets {
       padding: 9rem 2.5rem;
@@ -829,7 +858,7 @@
       #schedule { padding-bottom: 4rem; }
       #tickets { padding-top: 5rem; padding-bottom: 5rem; }
       .tickets-headline { font-size: 2.6rem; }
-      #hero, #mission, #about, #expect, #speakers, #schedule, #tickets, #give { padding-left: 1.5rem; padding-right: 1.5rem; }
+      #hero, #mission, #about, #expect, #speakers, #schedule, #tickets, #give, #volunteer { padding-left: 1.5rem; padding-right: 1.5rem; }
 
       /* Hero on mobile */
       .hero-actions { flex-direction: column; align-items: center; width: 100%; }
@@ -864,6 +893,7 @@
       <li><a href="#speakers">Speakers</a></li>
       <li><a href="#schedule">Schedule</a></li>
       <li><a href="#give">Give</a></li>
+      <li><a href="#volunteer">Volunteer</a></li>
     </ul>
     <a href="https://www.eventbrite.co.uk/e/spiritcon-26-tickets-1839717577799?aff=oddtdtcreator&fbclid=PAVERFWAPYw35leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafV4KNLf8v9OnCa9sp4ONcHSlYBanSckXVrNNa_L5GTwBF_v5fR1emG8J2zhg_aem_ZNKiFpK7MOEWHQGBBUX_Lw" target="_blank" rel="noopener" class="nav-cta">Get Tickets</a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false">+</button>
@@ -874,6 +904,7 @@
     <a href="#speakers">Speakers</a>
     <a href="#schedule">Schedule</a>
     <a href="#give">Give</a>
+    <a href="#volunteer">Volunteer</a>
     <a href="https://www.eventbrite.co.uk/e/spiritcon-26-tickets-1839717577799?aff=oddtdtcreator&fbclid=PAVERFWAPYw35leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafV4KNLf8v9OnCa9sp4ONcHSlYBanSckXVrNNa_L5GTwBF_v5fR1emG8J2zhg_aem_ZNKiFpK7MOEWHQGBBUX_Lw" target="_blank" rel="noopener" class="nav-mobile-cta">Get Tickets</a>
   </div>
 
@@ -1061,6 +1092,26 @@
       <p class="give-sub">SPIRITCon exists because people believe in what God is doing. Your gift helps us create life-changing experiences and reach more people with the Gospel.</p>
       <a href="https://paypal.me/SpiritCon" target="_blank" rel="noopener" class="btn-light">Give Now</a>
       <span class="give-meta">Secure giving via PayPal</span>
+    </div>
+  </section>
+
+  <!-- VOLUNTEER -->
+  <section id="volunteer">
+    <div class="volunteer-inner reveal">
+      <span class="label">/ Volunteer</span>
+      <h2 class="section-title" style="margin-top:1rem; margin-bottom:0;">Serve<br>With Us.</h2>
+      <p class="volunteer-sub">Be part of the team that makes SPIRITCon happen. From ushering and hospitality to tech and prayer — there's a place for you to serve.</p>
+      <div class="volunteer-form-wrap">
+        <iframe
+          id="volunteer-form"
+          title="SPIRITCon Volunteer Sign-Up"
+          src="https://form.jotform.com/241682601130950"
+          allowfullscreen
+          allow="geolocation; microphone; camera"
+          style="border:none; width:100%; min-height:600px; display:block;"
+          loading="lazy"
+        ></iframe>
+      </div>
     </div>
   </section>
 
