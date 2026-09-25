@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin · Bully the Roads</title>
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/admin.css">
+  <script type="module" src="/assets/js/admin.js"></script>
+</head>
+<body class="admin">
+  <aside class="admin-proto-bar" aria-label="Prototype notice">Prototype: any password signs in and nothing is saved. Real login, sessions and CSRF arrive in Phase 2.</aside>
+
+  <!-- Sign in -->
+  <main class="admin-login" data-login>
+    <form class="admin-login__card" data-login-form>
+      <p class="wordmark">Bully the Roads</p>
+      <h1 class="admin-login__title">Admin</h1>
+      <div class="field">
+        <label class="field__label" for="admin-password">Password</label>
+        <input class="input" id="admin-password" name="password" type="password" autocomplete="current-password" required>
+      </div>
+      <button class="btn btn--block" type="submit">Sign in</button>
+    </form>
+  </main>
+
+  <!-- Dashboard -->
+  <div class="admin-app" data-app hidden>
+    <header class="admin-bar">
+      <div class="admin-bar__inner">
+        <div class="admin-bar__brand">
+          <a class="wordmark" href="/">Bully the Roads</a>
+          <span class="admin-bar__tag">Admin</span>
+        </div>
+        <nav class="admin-nav" aria-label="Admin sections">
+          <a href="#events" data-tab="events">Events</a>
+          <a href="#applications" data-tab="applications">Applications <span class="count" data-pending-count aria-label="pending"></span></a>
+          <a href="#challenges" data-tab="challenges">Challenges</a>
+          <a href="#settings" data-tab="settings">Settings</a>
+        </nav>
+        <div class="admin-bar__actions">
+          <a href="/" target="_blank" rel="noopener">View site</a>
+          <button type="button" data-logout>Log out</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="admin-main" id="main">
+      <!-- Events -->
+      <section data-panel="events" aria-labelledby="events-title">
+        <div class="admin-head">
+          <h1 id="events-title">Events</h1>
+          <button class="btn" type="button" data-new-event>New event</button>
+        </div>
+        <div class="admin-toolbar">
+          <div class="segmented" role="group" aria-label="Which events">
+            <button type="button" data-event-scope="upcoming" aria-pressed="true">Upcoming</button>
+            <button type="button" data-event-scope="past" aria-pressed="false">Past</button>
+            <button type="button" data-event-scope="all" aria-pressed="false">All</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr><th scope="col">When</th><th scope="col">Event</th><th scope="col">Type</th><th scope="col">Status</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr>
+            </thead>
+            <tbody data-events-body></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Applications -->
+      <section data-panel="applications" aria-labelledby="apps-title" hidden>
+        <div class="admin-head">
+          <h1 id="apps-title">Applications</h1>
+          <button class="btn btn--secondary" type="button" data-export-csv>Export CSV</button>
+        </div>
+        <div class="stats" data-app-stats></div>
+        <div class="admin-toolbar">
+          <div class="field">
+            <label class="field__label" for="app-search">Search</label>
+            <input class="input" id="app-search" type="search" placeholder="Name, email, phone or area" data-app-search>
+          </div>
+          <div class="field">
+            <label class="field__label" for="app-status">Status</label>
+            <select class="select" id="app-status" data-app-status>
+              <option value="all">All statuses</option>
+              <option value="pending">Pending</option>
+              <option value="approved">Approved</option>
+              <option value="declined">Declined</option>
+              <option value="unverified">Unverified</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr><th scope="col">Applicant</th><th scope="col">Area</th><th scope="col">Level and pace</th><th scope="col">Applied</th><th scope="col">Status</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr>
+            </thead>
+            <tbody data-apps-body></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Challenges -->
+      <section data-panel="challenges" aria-labelledby="challenges-title" hidden>
+        <div class="admin-head">
+          <h1 id="challenges-title">Challenges</h1>
+          <button class="btn" type="button" data-new-challenge>New challenge</button>
+        </div>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr><th scope="col">Challenge</th><th scope="col">Dates</th><th scope="col">State</th><th scope="col">Winners</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr>
+            </thead>
+            <tbody data-challenges-body></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Settings -->
+      <section data-panel="settings" aria-labelledby="settings-title" hidden>
+        <div class="admin-head">
+          <h1 id="settings-title">Settings</h1>
+        </div>
+        <form class="panel panel--pad form" data-settings-form>
+          <div class="field">
+            <label class="field__label" for="set-whatsapp">WhatsApp community invite link</label>
+            <input class="input" id="set-whatsapp" name="whatsapp_url" type="url" required placeholder="https://chat.whatsapp.com/…" aria-describedby="set-whatsapp-hint">
+            <p class="field__hint" id="set-whatsapp-hint">Only ever sent in approval emails. Never shown on the site. Keep "approve new members" switched on in WhatsApp and reset this link every few months.</p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="set-strava">Strava club link</label>
+            <input class="input" id="set-strava" name="strava_club_url" type="url" required>
+          </div>
+          <div class="grid-2">
+            <div class="field">
+              <label class="field__label" for="set-notify-1">Notification email 1</label>
+              <input class="input" id="set-notify-1" name="notify_email_1" type="email" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="set-notify-2">Notification email 2</label>
+              <input class="input" id="set-notify-2" name="notify_email_2" type="email">
+            </div>
+          </div>
+          <div class="button-row"><button class="btn" type="submit">Save settings</button></div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Event editor -->
+  <dialog class="admin-dialog" data-event-dialog aria-labelledby="event-dialog-title">
+    <form method="dialog" data-event-form>
+      <div class="admin-dialog__head">
+        <h2 id="event-dialog-title">New event</h2>
+        <button class="text-btn" type="button" value="cancel" data-close>Close</button>
+      </div>
+      <div class="admin-dialog__body">
+        <input type="hidden" name="id">
+        <div class="field">
+          <label class="field__label" for="ev-title">Title</label>
+          <input class="input" id="ev-title" name="title" required maxlength="120">
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label class="field__label" for="ev-type">Type</label>
+            <select class="select" id="ev-type" name="type" required>
+              <option value="run">Run</option>
+              <option value="social">Social</option>
+              <option value="track_play">Track + Play</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ev-status">Status</label>
+            <select class="select" id="ev-status" name="status">
+              <option value="scheduled">Scheduled</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid-3">
+          <div class="field">
+            <label class="field__label" for="ev-date">Date</label>
+            <input class="input" id="ev-date" name="date" type="date" required>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ev-start">Starts</label>
+            <input class="input" id="ev-start" name="start" type="time" required>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ev-end">Ends <span class="field__optional">(optional)</span></label>
+            <input class="input" id="ev-end" name="end" type="time">
+          </div>
+        </div>
+        <p class="field__hint">London time. Clock changes are handled for you.</p>
+        <div class="field">
+          <label class="field__label" for="ev-location">Meeting point</label>
+          <input class="input" id="ev-location" name="location_name" required maxlength="160">
+        </div>
+        <div class="field">
+          <label class="field__label" for="ev-location-url">Map link <span class="field__optional">(optional)</span></label>
+          <input class="input" id="ev-location-url" name="location_url" type="url" placeholder="Leave blank to search Google Maps for the meeting point">
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label class="field__label" for="ev-distance">Distance <span class="field__optional">(optional)</span></label>
+            <input class="input" id="ev-distance" name="distance" maxlength="40" placeholder="10k">
+          </div>
+          <div class="field">
+            <label class="field__label" for="ev-partner">Partner <span class="field__optional">(optional)</span></label>
+            <input class="input" id="ev-partner" name="partner" maxlength="80" placeholder="Runlimited">
+          </div>
+        </div>
+        <div class="field">
+          <label class="field__label" for="ev-pace">Pace groups <span class="field__optional">(optional)</span></label>
+          <input class="input" id="ev-pace" name="pace_groups" maxlength="160" placeholder="5:00/km, 5:45/km, 6:30/km, Walk-run" aria-describedby="ev-pace-hint">
+          <p class="field__hint" id="ev-pace-hint">Separate groups with commas.</p>
+        </div>
+        <div class="field">
+          <label class="field__label" for="ev-desc">Description <span class="field__optional">(optional)</span></label>
+          <textarea class="textarea" id="ev-desc" name="description" maxlength="600"></textarea>
+        </div>
+      </div>
+      <div class="admin-dialog__foot">
+        <button class="btn btn--secondary btn--sm" type="button" data-close>Cancel</button>
+        <button class="btn btn--sm" type="submit" value="save">Save event</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Application detail -->
+  <dialog class="admin-dialog" data-app-dialog aria-labelledby="app-dialog-title">
+    <div class="admin-dialog__head">
+      <h2 id="app-dialog-title">Application</h2>
+      <button class="text-btn" type="button" data-close>Close</button>
+    </div>
+    <div class="admin-dialog__body" data-app-detail></div>
+    <div class="admin-dialog__foot" data-app-actions></div>
+  </dialog>
+
+  <!-- Challenge editor -->
+  <dialog class="admin-dialog" data-challenge-dialog aria-labelledby="challenge-dialog-title">
+    <form method="dialog" data-challenge-form>
+      <div class="admin-dialog__head">
+        <h2 id="challenge-dialog-title">New challenge</h2>
+        <button class="text-btn" type="button" data-close>Close</button>
+      </div>
+      <div class="admin-dialog__body">
+        <input type="hidden" name="id">
+        <div class="grid-2">
+          <div class="field">
+            <label class="field__label" for="ch-title">Name</label>
+            <input class="input" id="ch-title" name="title" required maxlength="80">
+          </div>
+          <div class="field">
+            <label class="field__label" for="ch-distance">Distance</label>
+            <input class="input" id="ch-distance" name="distance" required maxlength="20" placeholder="20k">
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label class="field__label" for="ch-start">Starts</label>
+            <input class="input" id="ch-start" name="starts_on" type="date" required>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ch-end">Ends</label>
+            <input class="input" id="ch-end" name="ends_on" type="date" required>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label class="field__label" for="ch-prize">Prize</label>
+            <input class="input" id="ch-prize" name="prize" maxlength="120">
+          </div>
+          <div class="field">
+            <label class="field__label" for="ch-sponsor">Sponsor <span class="field__optional">(optional)</span></label>
+            <input class="input" id="ch-sponsor" name="sponsor" maxlength="80">
+          </div>
+        </div>
+        <div class="field">
+          <label class="field__label" for="ch-url">Strava group challenge link</label>
+          <input class="input" id="ch-url" name="strava_url" type="url" required>
+        </div>
+        <div class="field">
+          <label class="field__label" for="ch-rules">Rules</label>
+          <textarea class="textarea" id="ch-rules" name="rules" aria-describedby="ch-rules-hint"></textarea>
+          <p class="field__hint" id="ch-rules-hint">One rule per line.</p>
+        </div>
+        <div class="field">
+          <label class="field__label" for="ch-status">Visibility</label>
+          <select class="select" id="ch-status" name="status">
+            <option value="published">Published</option>
+            <option value="draft">Draft (hidden from site)</option>
+          </select>
+        </div>
+        <fieldset class="fieldset">
+          <legend class="field__label">Winners</legend>
+          <p class="field__hint">Add once the challenge has ended. First name and surname initial only.</p>
+          <div class="winner-rows" data-winner-rows></div>
+          <div class="button-row"><button class="text-btn" type="button" data-add-winner>Add winner</button></div>
+        </fieldset>
+      </div>
+      <div class="admin-dialog__foot">
+        <button class="btn btn--secondary btn--sm" type="button" data-close>Cancel</button>
+        <button class="btn btn--sm" type="submit" value="save">Save challenge</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+</body>
+</html>

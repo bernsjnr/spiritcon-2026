@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join the community · Bully the Roads</title>
+  <meta name="description" content="Apply to join the Bully the Roads community. Free, every pace welcome. Confirm your email and we'll send your invite.">
+  <meta name="theme-color" content="#0d0d0d">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="module" src="/assets/js/site.js"></script>
+  <script type="module" src="/assets/js/join.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="wordmark" href="/">Bully the Roads</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle__bars" aria-hidden="true"></span><span data-nav-label>Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/calendar/">Calendar</a></li>
+          <li><a href="/challenges/">Challenges</a></li>
+          <li><a class="btn btn--sm" href="/join/" aria-current="page">Join the community</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <header class="page-head">
+        <p class="eyebrow">Join the community</p>
+        <h1>Run with us</h1>
+        <p class="lede">Free to join, open to every pace. Tell us a bit about you and your running, and we'll get you into the BTR community.</p>
+      </header>
+    </div>
+
+    <section class="section section--flush-top">
+      <div class="container join">
+        <aside class="join__aside" aria-labelledby="how-title">
+          <div>
+            <h2 class="eyebrow" id="how-title">How it works</h2>
+            <ol class="steps" role="list">
+              <li><div><strong>Apply</strong><p>Two minutes. About you and your running.</p></div></li>
+              <li><div><strong>Confirm your email</strong><p>We'll send you a link. It works for 7 days.</p></div></li>
+              <li><div><strong>We say hello</strong><p>A real person reads every application.</p></div></li>
+              <li><div><strong>You're in</strong><p>Your invite to the BTR WhatsApp community arrives by email.</p></div></li>
+            </ol>
+          </div>
+
+          <div class="aside-card">
+            <h2 class="aside-card__title">Already on Strava?</h2>
+            <p class="muted">Join the club to log runs with us and enter challenges. You can do this any time, before or after applying.</p>
+            <a class="btn btn--secondary btn--block" data-setting-href="strava_club_url" href="https://www.strava.com/clubs/bullytheroads" target="_blank" rel="noopener">Join BTR on Strava <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg><span class="visually-hidden"> (opens in new tab)</span></a>
+          </div>
+
+          <p class="field__hint">We only use your details to review your application and run the community. Read the <a href="/privacy/">privacy notice</a>.</p>
+        </aside>
+
+        <div>
+          <form class="form" id="join-form" action="/api/apply.php" method="post" novalidate data-join-form>
+            <div class="error-summary" tabindex="-1" role="alert" aria-labelledby="error-summary-title" data-error-summary hidden>
+              <h2 class="error-summary__title" id="error-summary-title">A few things need fixing</h2>
+              <ul data-error-list></ul>
+            </div>
+
+            <!-- 01 About you -->
+            <fieldset class="fieldset">
+              <legend class="fieldset__legend"><span class="fieldset__num">01</span> About you</legend>
+              <div class="fieldset__body fieldset__body--2">
+                <div class="field field--wide">
+                  <label class="field__label" for="name">Full name</label>
+                  <input class="input" id="name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="name-error">
+                  <p class="field__error" id="name-error" data-error-for="name"></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="email">Email</label>
+                  <input class="input" id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160" aria-describedby="email-hint email-error">
+                  <p class="field__hint" id="email-hint">We'll send a link to confirm it's you.</p>
+                  <p class="field__error" id="email-error" data-error-for="email"></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="phone">Mobile number</label>
+                  <input class="input" id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" aria-describedby="phone-hint phone-error">
+                  <p class="field__hint" id="phone-hint">The one you use for WhatsApp.</p>
+                  <p class="field__error" id="phone-error" data-error-for="phone"></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="area">Area or postcode district</label>
+                  <input class="input" id="area" name="area" type="text" required maxlength="60" aria-describedby="area-hint area-error">
+                  <p class="field__hint" id="area-hint">Roughly, like E8 or Peckham. Never your full address.</p>
+                  <p class="field__error" id="area-error" data-error-for="area"></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="handle">Instagram or Strava <span class="field__optional">(optional)</span></label>
+                  <input class="input" id="handle" name="handle" type="text" maxlength="80" autocapitalize="off" spellcheck="false" aria-describedby="handle-hint">
+                  <p class="field__hint" id="handle-hint">Your @handle or profile link.</p>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- 02 Your running -->
+            <fieldset class="fieldset">
+              <legend class="fieldset__legend"><span class="fieldset__num">02</span> Your running</legend>
+              <div class="fieldset__body fieldset__body--2">
+                <div class="field">
+                  <label class="field__label" for="level">Where you're at</label>
+                  <select class="select" id="level" name="level" required aria-describedby="level-error">
+                    <option value="">Choose one</option>
+                    <option value="new">Brand new to running</option>
+                    <option value="getting_going">Getting going, up to 5k</option>
+                    <option value="regular">Running regularly, 5k to 10k</option>
+                    <option value="experienced">Experienced, half marathon and up</option>
+                    <option value="competitive">Competitive, racing for times</option>
+                  </select>
+                  <p class="field__error" id="level-error" data-error-for="level"></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="pace">Comfortable easy pace</label>
+                  <select class="select" id="pace" name="pace" required aria-describedby="pace-hint pace-error">
+                    <option value="">Choose one</option>
+                    <option value="not_sure">Not sure yet</option>
+                    <option value="7plus">Slower than 7:00 per km</option>
+                    <option value="6-7">6:00 to 7:00 per km</option>
+                    <option value="5-6">5:00 to 6:00 per km</option>
+                    <option value="4:30-5">4:30 to 5:00 per km</option>
+                    <option value="sub4:30">Faster than 4:30 per km</option>
+                  </select>
+                  <p class="field__hint" id="pace-hint">Chatting pace, not race pace. Every group has a sweeper.</p>
+                  <p class="field__error" id="pace-error" data-error-for="pace"></p>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- 03 Goals -->
+            <fieldset class="fieldset">
+              <legend class="fieldset__legend"><span class="fieldset__num">03</span> Goals</legend>
+              <div class="fieldset__body">
+                <div class="field">
+                  <label class="field__label" for="goals">What are you hoping to get out of running?</label>
+                  <textarea class="textarea" id="goals" name="goals" required maxlength="1000" aria-describedby="goals-hint goals-error"></textarea>
+                  <p class="field__hint" id="goals-hint">Anything from "run my first 5k" to "sub-3 marathon". Fitness, friends, headspace all count.</p>
+                  <p class="field__error" id="goals-error" data-error-for="goals"></p>
+                </div>
+                <div class="fieldset__body fieldset__body--2">
+                  <div class="field">
+                    <label class="field__label" for="target_times">Target times or distances <span class="field__optional">(optional)</span></label>
+                    <input class="input" id="target_times" name="target_times" type="text" maxlength="200" aria-describedby="target-hint">
+                    <p class="field__hint" id="target-hint">For example, 10k under 55 minutes.</p>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="training_for">Events you're training for <span class="field__optional">(optional)</span></label>
+                    <input class="input" id="training_for" name="training_for" type="text" maxlength="200" aria-describedby="training-hint">
+                    <p class="field__hint" id="training-hint">Races, dates, anything on the horizon.</p>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- 04 You and BTR -->
+            <fieldset class="fieldset">
+              <legend class="fieldset__legend"><span class="fieldset__num">04</span> You and BTR</legend>
+              <div class="fieldset__body">
+                <div class="field">
+                  <label class="field__label" for="why_btr">Why do you want to join BTR?</label>
+                  <textarea class="textarea" id="why_btr" name="why_btr" required maxlength="1000" aria-describedby="why-error"></textarea>
+                  <p class="field__error" id="why-error" data-error-for="why_btr"></p>
+                </div>
+                <div class="fieldset__body fieldset__body--2">
+                  <div class="field">
+                    <label class="field__label" for="heard_from">How did you hear about us?</label>
+                    <select class="select" id="heard_from" name="heard_from" required aria-describedby="heard-error">
+                      <option value="">Choose one</option>
+                      <option value="instagram">Instagram</option>
+                      <option value="strava">Strava</option>
+                      <option value="tiktok">TikTok</option>
+                      <option value="friend">A friend or member</option>
+                      <option value="partner">Runlimited or another partner</option>
+                      <option value="saw_us">Saw us out running</option>
+                      <option value="event">At an event</option>
+                      <option value="other">Somewhere else</option>
+                    </select>
+                    <p class="field__error" id="heard-error" data-error-for="heard_from"></p>
+                  </div>
+                  <div class="field" data-heard-other hidden>
+                    <label class="field__label" for="heard_from_other">Where was that?</label>
+                    <input class="input" id="heard_from_other" name="heard_from_other" type="text" maxlength="120">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- 05 When you can run -->
+            <fieldset class="fieldset">
+              <legend class="fieldset__legend"><span class="fieldset__num">05</span> When you can run</legend>
+              <div class="fieldset__body">
+                <fieldset class="field fieldset">
+                  <legend class="field__label">Days that usually work <span class="field__optional">(optional)</span></legend>
+                  <div class="choices">
+                    <label class="choice"><input type="checkbox" name="availability_days[]" value="mon"><span>Mon</span></label>
+                    <label class="choice"><input type="checkbox" name="availability_days[]" value="tue"><span>Tue</span></label>
+                    <label class="choice"><input type="checkbox" name="availability_days[]" value="wed"><span>Wed</span></label>
+                    <label class="choice"><input type="checkbox" name="availability_days[]" value="thu"><span>Thu</span></label>
+                    <label class="choice"><input type="checkbox" name="availability_days[]" value="fri"><span>Fri</span></label>
+                    <label class="choice"><input type="checkbox" name="availability_days[]" value="sat"><span>Sat</span></label>
+                    <label class="choice"><input type="checkbox" name="availability_days[]" value="sun"><span>Sun</span></label>
+                  </div>
+                </fieldset>
+                <fieldset class="field fieldset">
+                  <legend class="field__label">Times that usually work <span class="field__optional">(optional)</span></legend>
+                  <div class="choices">
+                    <label class="choice"><input type="checkbox" name="availability_times[]" value="early"><span>Early, before 8am</span></label>
+                    <label class="choice"><input type="checkbox" name="availability_times[]" value="morning"><span>Morning</span></label>
+                    <label class="choice"><input type="checkbox" name="availability_times[]" value="lunch"><span>Lunchtime</span></label>
+                    <label class="choice"><input type="checkbox" name="availability_times[]" value="evening"><span>Evening, after 6pm</span></label>
+                  </div>
+                </fieldset>
+              </div>
+            </fieldset>
+
+            <!-- 06 Consent -->
+            <fieldset class="fieldset">
+              <legend class="fieldset__legend"><span class="fieldset__num">06</span> Nearly there</legend>
+              <div class="fieldset__body">
+                <div class="checkbox">
+                  <input id="consent" name="consent" type="checkbox" value="1" required aria-describedby="consent-error">
+                  <label for="consent">I agree to BTR using my details to review this application and, if I join, to run the community, as set out in the <a href="/privacy/" target="_blank" rel="noopener">privacy notice<span class="visually-hidden"> (opens in new tab)</span></a>.</label>
+                  <p class="field__error" id="consent-error" data-error-for="consent"></p>
+                </div>
+                <div class="checkbox">
+                  <input id="newsletter_opt_in" name="newsletter_opt_in" type="checkbox" value="1" aria-describedby="newsletter-hint">
+                  <label for="newsletter_opt_in">Send me the occasional BTR email about events, challenges and partner offers <span class="field__optional">(optional)</span></label>
+                  <p class="field__hint" id="newsletter-hint">Unsubscribe any time.</p>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Spam traps: honeypot for bots, Turnstile arrives in Phase 3 -->
+            <div class="hp" aria-hidden="true">
+              <label for="website">Leave this empty</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form__submit">
+              <div class="turnstile-slot" data-turnstile>Cloudflare Turnstile check sits here (Phase 3)</div>
+              <button class="btn" type="submit">Send application</button>
+              <p class="field__hint">Next, we'll email you a link to confirm your address.</p>
+            </div>
+          </form>
+
+          <div class="success" tabindex="-1" data-join-success hidden>
+            <p class="eyebrow">Application received</p>
+            <h2 class="h-section">Check your inbox</h2>
+            <p class="lede">We've sent a link to <strong data-success-email></strong>. Tap it to confirm your email and your application comes straight to us. The link works for 7 days.</p>
+            <p>Can't see it? Check spam, or give it a few minutes.</p>
+            <p class="notice notice--inverse">Prototype: nothing was sent. Real emails arrive in Phase 3.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="site-footer__mark" aria-hidden="true">Bully<br>the Roads</p>
+      <p class="site-footer__tag">A London community sports club. Running first. For all people and all paces.</p>
+      <div class="site-footer__grid">
+        <nav aria-label="Footer">
+          <h2 class="site-footer__heading">Explore</h2>
+          <ul class="site-footer__links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/calendar/">Calendar</a></li>
+            <li><a href="/challenges/">Challenges</a></li>
+            <li><a href="/join/">Join the community</a></li>
+            <li><a href="/privacy/">Privacy notice</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="site-footer__heading">Strava</h2>
+          <p class="site-footer__text">Log your runs with the club and enter our challenges.</p>
+          <a class="btn btn--inverse" data-setting-href="strava_club_url" href="https://www.strava.com/clubs/bullytheroads" target="_blank" rel="noopener">Join BTR on Strava <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg><span class="visually-hidden"> (opens in new tab)</span></a>
+        </div>
+        <div>
+          <h2 class="site-footer__heading">Say hello</h2>
+          <ul class="site-footer__links">
+            <li><a href="mailto:bullytheroads@gmail.com">bullytheroads@gmail.com</a></li>
+            <li><a data-setting-href="instagram_url" href="https://www.instagram.com/bullytheroads" target="_blank" rel="noopener">Instagram<span class="visually-hidden"> (opens in new tab)</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__legal">
+        <p>© <span data-year>2026</span> Bully the Roads</p>
+        <p><a href="/privacy/">Privacy notice</a> · No tracking, no ads.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

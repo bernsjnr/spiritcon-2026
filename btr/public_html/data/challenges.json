@@ -1,0 +1,48 @@
+{
+  "_note": "PHASE 1 MOCK DATA. Same shape the Phase 4 /api/challenges.php will return. Rules are newline-separated. Winners show first name and initial only.",
+  "challenges": [
+    {
+      "id": 2,
+      "title": "Autumn 20k",
+      "distance": "20k",
+      "starts_on": "2026-09-21",
+      "ends_on": "2026-10-18",
+      "rules": "Run 20k in total between 21 September and 18 October.\nEvery run recorded on Strava counts, any pace, any route.\nYou must be a member of the BTR Strava club and joined to this group challenge.\nFinishers go into the prize draw. Winners drawn at random and posted here.",
+      "prize": "Runlimited gift card",
+      "sponsor": "Runlimited",
+      "strava_url": "https://www.strava.com/clubs/bullytheroads",
+      "status": "published",
+      "results": []
+    },
+    {
+      "id": 3,
+      "title": "Autumn 40k",
+      "distance": "40k",
+      "starts_on": "2026-09-21",
+      "ends_on": "2026-10-18",
+      "rules": "Run 40k in total between 21 September and 18 October.\nEvery run recorded on Strava counts, any pace, any route.\nYou must be a member of the BTR Strava club and joined to this group challenge.\nFinishers go into the prize draw. Winners drawn at random and posted here.",
+      "prize": "Pair of running shoes",
+      "sponsor": "Runlimited",
+      "strava_url": "https://www.strava.com/clubs/bullytheroads",
+      "status": "published",
+      "results": []
+    },
+    {
+      "id": 1,
+      "title": "Summer 10k",
+      "distance": "10k",
+      "starts_on": "2026-08-01",
+      "ends_on": "2026-08-31",
+      "rules": "Run 10k in total during August.\nEvery run recorded on Strava counts.\nFinishers went into the prize draw.",
+      "prize": "BTR kit bundle",
+      "sponsor": "",
+      "strava_url": "https://www.strava.com/clubs/bullytheroads",
+      "status": "published",
+      "results": [
+        { "position": 1, "name": "Amara O.", "result": "64.2 km" },
+        { "position": 2, "name": "Dan K.", "result": "51.8 km" },
+        { "position": 3, "name": "Priya S.", "result": "47.5 km" }
+      ]
+    }
+  ]
+}
